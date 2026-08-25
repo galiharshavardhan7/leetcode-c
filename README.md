@@ -15,6 +15,9 @@ C isn't the most common language for LeetCode, but I picked it because it forces
 **Two Pointers**
 - #15 3Sum → [0015_3sum.c](02-Two-Pointers/0015_3sum.c)
 
+**05-Binary-Search**
+- #278_FirstbadVersion - [05-Binary-Search/278_FirstBadVersion.c]
+
 **Linked Lists**
 - #83 Remove Duplicates from Sorted List → [0083_remove_duplicates_from_sorted_list.c](04-Linked-Lists/0083_remove_duplicates_from_sorted_list.c)
 
