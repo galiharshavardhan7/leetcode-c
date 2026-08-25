@@ -11,7 +11,7 @@ int firstBadVersion(int n) {
         if (isBadVersion(mid)) {
             right = mid; // First bad version is at mid or earlier
         } else {
-            left = mid + 1; // Bad version must be after mid
+            left = mid + 1;    // Bad version must be after mid
         }
     }
     
