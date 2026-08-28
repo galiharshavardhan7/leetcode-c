@@ -1,0 +1,35 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+char** summaryRanges(int* nums, int numsSize, int* returnSize) {
+    if (numsSize == 0) {
+        *returnSize = 0;
+        return NULL;
+    }
+
+    char** result = (char**)malloc(numsSize * sizeof(char*));
+    int count = 0;
+
+    for (int i = 0; i < numsSize; i++) {
+        int start = nums[i];
+
+        // Advance while the next element is consecutive
+        // Using (long) cast prevents potential integer overflow with INT_MAX
+        while (i + 1 < numsSize && (long)nums[i + 1] - nums[i] == 1) {
+            i++;
+        }
+
+        // Allocate space for the range string (max length needed is ~25 chars: "-2147483648->-2147483647\0")
+        result[count] = (char*)malloc(32 * sizeof(char));
+
+        if (start == nums[i]) {
+            snprintf(result[count], 32, "%d", start);
+        } else {
+            snprintf(result[count], 32, "%d->%d", start, nums[i]);
+        }
+        count++;
+    }
+
+    *returnSize = count;
+    return result;
+}
